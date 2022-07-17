@@ -19,6 +19,11 @@ def forca():
     user_letra = input('Adivinhe uma letra: ').upper()
     if user_letra in alfabeto - letras_usadas:
         letras_usadas.add(user_letra)
+        if user_letra in letras:
+            letras.remove(user_letra)
+
+    elif user_letra in letras_usadas:
+
 
 user_input = input('Digite algo: ')
 print(user_input)
