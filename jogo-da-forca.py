@@ -2,7 +2,7 @@ import random
 from palavras import palavras
 import string
 
-def palavra_valida(palavras):
+def get_palavra_valida(palavras):
     palavra = random.choice(palavras)  #esse comando vai fazer a escolha das palavras aleatoriamente
     while '-' in palavra or ' ' in palavra:
         palavra = random.choice(palavras)
@@ -10,7 +10,7 @@ def palavra_valida(palavras):
     return palavra.upper()
 
 def forca():
-    palavra = palavra_valida(palavras)
+    palavra = get_palavra_valida(palavras)
     letras = set(palavra)  # letras das palavras
     alfabeto = set(string.ascii_uppercase)
     letras_usadas = set()   #o que o usuário adivinhou
@@ -23,7 +23,9 @@ def forca():
             letras.remove(user_letra)
 
     elif user_letra in letras_usadas:
-
+        print('Você já usou essa letra. Tente outra.')
+    else:
+        print('Caractere inválido. Por favor, tente novamente.')
 
 user_input = input('Digite algo: ')
 print(user_input)
